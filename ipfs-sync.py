@@ -14,7 +14,7 @@ this_pins_url = IPFS_PIN_LS_URI_FMT.format(THIS_SERVER)
 
 this_pins_filename = wget.download(this_pins_url, out="this-pins.json")
 
-if len(sys.argv) = 0:
+if len(sys.argv) == 0:
     other_pins_filename = wget.download(other_pins_url, out="other-pins.json")
 else:
     other_pins_filename = sys.argv[0]
