@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 import wget
 
@@ -8,12 +9,15 @@ THIS_SERVER = os.getenv("THIS_SERVER")
 OTHER_SERVER = os.getenv("OTHER_SERVER")
 IPFS_PIN_LS_URI_FMT = "{}/api/v0/pin/ls"
 
-
 other_pins_url = IPFS_PIN_LS_URI_FMT.format(OTHER_SERVER)
 this_pins_url = IPFS_PIN_LS_URI_FMT.format(THIS_SERVER)
 
-other_pins_filename = wget.download(other_pins_url, out="other-pins.json")
 this_pins_filename = wget.download(this_pins_url, out="this-pins.json")
+
+if len(sys.argv) = 0:
+    other_pins_filename = wget.download(other_pins_url, out="other-pins.json")
+else:
+    other_pins_filename = sys.argv[0]
 
 with open(other_pins_filename) as other_pins_file:
     other_pins = json.load(other_pins_file)
